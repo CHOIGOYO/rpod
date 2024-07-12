@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rpod/layout/default_layout.dart';
+import 'package:rpod/screen/auto_dispose_modifier_screen.dart';
 import 'package:rpod/screen/family_modifier_screen.dart';
 import 'package:rpod/screen/future_provider_screen.dart';
 import 'package:rpod/screen/state_notifier_provider_screen.dart';
@@ -49,7 +50,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (_) => const FamilyModifierScreen()));
               },
-              child: const Text('FamiltModifierScreen'))
+              child: const Text('FamiltModifierScreen')),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (_) => const AutoDisposeModifierScreen()));
+              },
+              child: const Text('AutoDisposeModifierScreen')),
         ],
       ),
     );
