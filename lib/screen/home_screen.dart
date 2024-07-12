@@ -3,6 +3,7 @@ import 'package:rpod/layout/default_layout.dart';
 import 'package:rpod/screen/future_provider_screen.dart';
 import 'package:rpod/screen/state_notifier_provider_screen.dart';
 import 'package:rpod/screen/state_provider_screen.dart';
+import 'package:rpod/screen/stream_provider_sceen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -35,7 +36,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (_) => const FutureProviderScreen()));
               },
-              child: const Text('FutureProviderScreen'))
+              child: const Text('FutureProviderScreen')),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (_) => const SteamProviderScreen()));
+              },
+              child: const Text('SteamProviderScreen'))
         ],
       ),
     );
