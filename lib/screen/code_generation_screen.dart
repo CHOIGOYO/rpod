@@ -52,7 +52,14 @@ class CodeGenerationScreen extends ConsumerWidget {
                     },
                     child: const Text('Increment')),
               ],
-            )
+            ),
+            // invalidate()
+            // 유효하지 않게 하다
+            ElevatedButton(
+                onPressed: () {
+                  ref.invalidate(gStateNotifierProvider);
+                },
+                child: const Text('Ivalidate')),
           ],
         ));
   }
