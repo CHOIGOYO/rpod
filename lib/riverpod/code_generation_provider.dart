@@ -46,3 +46,20 @@ int gStatemultiply(GStatemultiplyRef ref,
   // 일반 함수 형태로 Provider.family에 parameter를 전달할 수 있음
   return num1 * num2;
 }
+
+// 3) StateNotifierProvider 형태로 사용할 수 있도록
+@riverpod
+class GStateNotifier extends _$GStateNotifier {
+  @override
+  int build() {
+    return 0; // 초기값
+  }
+
+  void increment() {
+    state++;
+  }
+
+  void decrement() {
+    state--;
+  }
+}
