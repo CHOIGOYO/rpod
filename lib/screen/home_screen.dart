@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rpod/layout/default_layout.dart';
 import 'package:rpod/screen/auto_dispose_modifier_screen.dart';
+import 'package:rpod/screen/code_generation_screen.dart';
 import 'package:rpod/screen/family_modifier_screen.dart';
 import 'package:rpod/screen/future_provider_screen.dart';
 import 'package:rpod/screen/listen_provider_screen.dart';
@@ -78,6 +79,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     MaterialPageRoute(builder: (_) => const ProviderScreen()));
               },
               child: const Text('ProviderScreen')),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (_) => const CodeGenerationScreen()));
+              },
+              child: const Text('CodeGenerationScreen')),
         ],
       ),
     );
