@@ -4,6 +4,7 @@ import 'package:rpod/screen/auto_dispose_modifier_screen.dart';
 import 'package:rpod/screen/family_modifier_screen.dart';
 import 'package:rpod/screen/future_provider_screen.dart';
 import 'package:rpod/screen/listen_provider_screen.dart';
+import 'package:rpod/screen/provider_screen.dart';
 import 'package:rpod/screen/select_provider_screen.dart';
 import 'package:rpod/screen/state_notifier_provider_screen.dart';
 import 'package:rpod/screen/state_provider_screen.dart';
@@ -71,6 +72,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     builder: (_) => const SelectProviderScreen()));
               },
               child: const Text('SelectProviderScreen')),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const ProviderScreen()));
+              },
+              child: const Text('ProviderScreen')),
         ],
       ),
     );
