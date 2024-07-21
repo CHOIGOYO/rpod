@@ -12,7 +12,8 @@ class CodeGenerationScreen extends ConsumerWidget {
     final state2 = ref.watch(gStateFutureProvider);
     final state3 = ref.watch(gStateFuture2Provider);
     final state4 = ref.watch(GStatemultiplyProvider(num1: 20, num2: 20));
-    final state5 = ref.watch(gStateNotifierProvider);
+    // state5 제외 provider 변경될 때만 새로 빌드된다.
+    print('build CodeGenerationScreen >>>');
     return DefaultLayout(
         title: 'CodeGenerationScreen',
         body: Column(
@@ -36,7 +37,22 @@ class CodeGenerationScreen extends ConsumerWidget {
                 loading: () =>
                     const Center(child: CircularProgressIndicator())),
             Text('state4: $state4'),
-            Text('state5: $state5'),
+            // const _StateFive(),
+            // 부분적으로 렌더링 할 수 있도록 위젯 제공
+            Consumer(
+              builder: (context, ref, child) {
+                print('build Consumer StateFive >>>');
+                final state5 = ref.watch(gStateNotifierProvider);
+                return Row(
+                  children: [
+                    Text('state5: $state5 '), // 이 부분만 새로 빌드된다.
+                    if (child != null) child,
+                  ],
+                );
+              },
+              child: const Text(
+                  'Consumer StateFive child Text'), // 이 부분은 새로 빌드되지 않는다.
+            ),
             Row(
               children: [
                 ElevatedButton(
@@ -64,3 +80,16 @@ class CodeGenerationScreen extends ConsumerWidget {
         ));
   }
 }
+
+// state5 가 변경될 때만 새로 빌드된다.
+// 부분적으로만 새로 빌드되도록 할 수 있다.
+// class _StateFive extends ConsumerWidget {
+//   const _StateFive({super.key});
+
+//   @override
+//   Widget build(BuildContext context, WidgetRef ref) {
+//     print('build _StateFive >>>');
+//     final state5 = ref.watch(gStateNotifierProvider);
+//     return Text('state5: $state5');
+//   }
+// }
