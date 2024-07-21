@@ -15,9 +15,10 @@ migrate_working_dir/
 *.ipr
 *.iws
 .idea/
-.vscode/
+.vscode
 .gitignore
-.metadata
+
+
 
 
 # The .vscode folder contains launch configuration and tasks you configure in

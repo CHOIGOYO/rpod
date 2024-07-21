@@ -10,7 +10,7 @@ class FamilyModifierScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final prov = ref.watch(familyModifierProviderProvider(10));
     return DefaultLayout(
-      title: 'FamiltModifierScreen',
+      title: 'FamilyModifierScreen',
       body: SizedBox(
         width: MediaQuery.of(context).size.width,
         child: Center(
