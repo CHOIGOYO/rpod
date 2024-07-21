@@ -14,4 +14,12 @@ class ShoppingItemModel {
     required this.isBought,
     required this.isSpicy,
   });
+
+  ShoppingItemModel copyWhith(
+          {String? name, int? quantity, bool? isBought, bool? isSpicy}) =>
+      ShoppingItemModel(
+          name: name ?? this.name,
+          quantity: quantity ?? this.quantity,
+          isBought: isBought ?? this.isBought,
+          isSpicy: isSpicy ?? this.isSpicy);
 }
